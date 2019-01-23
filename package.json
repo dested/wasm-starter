@@ -1,0 +1,24 @@
+{
+  "name": "wasm-starter",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "pretty": "npx prettier \"*/**/*.js*\"  --config .prettierrc --write",
+    "dev": "webpack-dev-server --mode=development --progress --hide-modules --watch",
+    "prod": "webpack  --mode=production --progress --hide-modules ",
+    "asbuild:untouched": "asc assembly/index.ts -b build/untouched.wasm -t build/untouched.wat --sourceMap --validate --debug --importMemory",
+    "asbuild:optimized": "asc assembly/index.ts -b build/optimized.wasm -t build/optimized.wat --sourceMap --validate --optimize --importMemory",
+    "asbuild": "npm run asbuild:untouched && npm run asbuild:optimized"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "arraybuffer-loader": "^1.0.7",
+    "assemblyscript": "github:AssemblyScript/assemblyscript",
+    "prettier": "^1.16.1",
+    "webpack": "^4.29.0",
+    "webpack-cli": "^3.2.1",
+    "webpack-dev-server": "^3.1.14"
+  }
+}
